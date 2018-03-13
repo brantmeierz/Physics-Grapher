@@ -1,0 +1,18 @@
+{
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "manifest_version": 2,
+  "name": "Physics Grapher",
+  "version": "1.5",
+  
+  "description": "A free and offline Chrome app for graphing and analyzing simple linear data sets.",
+  "icons": { "16": "physicsgrapher02-16.png", "128": "physicsgrapher02-128.png" },
+  
+  "author": "devbrantmeier",
+  "offline_enabled": true,
+  "permissions": ["identity"],
+  "short_name": "Physics Grapher"
+}

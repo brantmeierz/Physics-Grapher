@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grapher Title</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript" src="settings.js"></script>
+		<script type="text/javascript" src="graph.js"></script>
+		<script type="text/javascript" src="windowcontrol.js"></script>
+	</head>
+	<body>
+		<!-- Data table editor -->
+		<div id="dataview">
+			<img src="physicsgrapher01-128.png" width="110px" height="110px"/>
+			<br/>
+			<button id="addrow" title="Adds a row to the end of the existing table">Add Row</button>
+			<button id="deleterow" title="Removes the last row in the existing table">Delete Row</button>
+			<button id="cleardata" title="Empties the table of all existing content">Clear Data</button>
+			<button id="thirdcolumn" title="Enables and disables a third column of values">Toggle Columns</button>
+			<br/>
+			<div id="scrollbox">
+				<table id="datatable">
+					<tr>
+						<th id="namehead" colspan="2">
+							<input type="text" title="What you type here will be displayed on the graph as your name" id="namelabel"/>
+						</th>
+					</tr>
+					<tr>
+						<th id="titlehead" colspan="2">
+							<input type="text" title="What you type here will be displayed on the graph as the title" id="titlelabel"/>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<input type="text" title="What you type here will be displayed on the graph as the x-axis label" id="xlabel"/>
+						</th>
+						<th>
+							<input type="text" title="What you type here will be displayed on the graph as the y-axis label" id="ylabel"/>
+						</th>
+						<th>
+							<input type="text" title="What you type here will be displayed on the graph as the secondary y-axis label" id="ylabel2" />
+						</th>
+					</tr>
+				</table>
+			</div>
+			<button class="viewgraph" title="Switch from the data table to graph view">View Graph</button>
+			<button class="viewhelp" title="Switch from the data table to the help view">View Help</button>
+		</div>
+		<!-- Graph editor -->
+		<div id="graphview">
+			<h2>Graph View</h2>
+			<button id="toggleconnectingline" title="Enables and disables the line connecting points (default: off)">Connecting Line</button>
+			<button id="togglelinreg" title="Enables and disables the linear regression data (default: off)">Linear Regression</button>
+			<button id="togglequadreg" style="visibility:hidden; display:none" title="[Advanced] Enables and disables the quadratic regression data (default: off)">Quadratic Regression</button>
+			<button id="areaundercurve" title="Calculates the area under the line between the data points (default: off)">Area Under Curve</button>
+			<button id="toggleunits" title="Enables and disables units being displayed on regressions and area under curve (default: on)">Show Unit Information</button>
+			<button id="gridlines" title="Enables and disables visible grid lines (default: on)">Show Grid Lines</button>
+			<button id="togglex" title="Locks and unlocks the x axis from zero (default: on)">Lock X to Zero</button>
+			<button id="toggley" title="Locks and unlocks the y axis from zero (default: on)">Lock Y to Zero</button>
+			<a id="download">
+				<button id="savegraph" title="Exports the graph as a PNG image to the device's file system">Save<br/>Graph</button>
+			</a>
+			<!--<button id="printgraph" title="Prints the graph">Print<br/>Graph</button>-->
+			<div id="canvascontainer">
+				<canvas id="graphcanvas" width="900px" height="450px">Your browser is incompatible with the HTML5 canvas element.</canvas>
+			</div>
+			<button class="viewdata" title="Switch from graph view to the data table">View Data</button>
+			<button class="viewhelp" title="Switch from graph view to the help view">View Help</button>
+		</div>
+		<!-- Help content -->
+		<div id="helpview">
+			<h1>Program Help</h1>
+			<div id="helpscroll">
+				<div id="helpcontent">
+					<h2>Navigation</h2>
+					<h3>Views</h3>
+					<p>There are three primary views: data table, graph, and help. Use the buttons at the bottom of each page to navigate between these different views.</p>
+					<ul>
+						<li>The <strong>data table view</strong> is where you can enter coordinate pairs or data items that you wish to use for a graph or regression.</li>
+						<li>The <strong>graph view</strong> is where you can view and edit your graph and its associated properties.</li>
+						<li>The <strong>help view</strong> (where you currently are) provides information about this application's use.</li>
+					</ul>
+					<h3>Controls</h3>
+					<p>If you want to know what any button does, simply hover your mouse over it for a short description.</p>
+					<p>If you a have a cell of the data table selected there are a number of key operations that can be used to navigate without the mouse:</p>
+					<ul>
+						<li>Pressing <code>Tab</code> will move to the next element of the table: right then down.</li>
+						<li>Pressing <code>Shift-Tab</code> will move to the previous element of the table: left then up.</li>
+						<li>Pressing <code>Enter</code> will jump to the next row in the selected column.</li>
+						<li>Presstig <code>Shift-Enter</code> will jump to the previous row in the selected column.</li>
+					</ul>
+					<p>Unmodified titles have the ability to auto-generate based on your labels when written in the form <code>Label (unit)</code>. For example, an x label of <code>Time (s)</code> and a y label of <code>Distance (m)</code> would result in a title of <code>Distance v. Time</code>.</p>
+					<h3>Printing</h3>
+					<p>To print a graph, simply save it as an image and use the print functionality on your devices. For best results use the Landscape printing orientation and (on Chromebooks) uncheck the "Headers and footers" option.</p>
+					<h2>Display</h2>
+					<p>The program is intended to be run in the full screen view of a chromebook. Viewing it on lower resolutions may lead to portions of the page not being displayed or inaccessible.</p>
+					<h2>Special characters</h2>
+					<h3>Chromebooks</h3>
+					<p>If you are on a Chromebook and want to type the squared or cubed symbols you can change your keyboard to be US International and use your right <code>Alt</code> key along with either 2 or 3.</p>
+					<h3>Desktops</h3>
+					<p>Squared and cubed symbols can be typed by pressing <code>Alt-1-7-8</code> and <code>Alt-1-7-9</code>, respectively.</p>
+					<h2>Issues</h2>
+					<p>There are a number of situations that will cause problems with your graph:</p>
+					<ol>
+						<li>Always make sure you have the same number of data items in both your X and your Y columns.</li>
+						<li>Make sure that you haven't skipped any rows of the data table (any data entered after a blank cell is ignored).</li>
+						<li>Ensure that you don't have any non-number characters (including spaces and enters) inside of your data cells.</li>
+					</ol>
+					<p>If you have any of these problems your graph may not load or will behave expectedly.</p>
+					<h2>Changelog</h2>
+					<h3>v1.5</h3>
+					<ul>
+						<li>Display units with regression and area under curve</li>
+						<li>Unit calculations for specific combinations</li>
+						<li>Option to hide and show unit values</li>
+						<li>Area under curve shows 3 decimal places regardless of trailing zeros</li>
+					</ul>
+					<h3>v1.4</h3>
+					<ul>
+						<li>Tweaked title and axes labels</li>
+						<li>Added option to include name as data item and graph annotation</li>
+					</ul>
+					<h3>v1.3</h3>
+					<ul>
+						<li>Enter and shift enter can be used to move between rows in the data table</li>
+						<li>Titles can auto-generate based on axes labels</li>
+						<li>Area under the curve is now shaded on the graph</li>
+						<li>Improved input validation and error message visuals</li>
+						<li>Added an option to enable "advanced mode" for additional features like quadratic regressions</li>
+						<li>Modified CSS for better scrollbars and improved window scaling</li>
+						<li>Bug fixes</li>
+					</ul>
+					<h3>v1.2</h3>
+					<ul>
+						<li>Axes can now be constrained to 0</li>
+						<li>Modified button layout</li>
+						<li>Slight performance improvements</li>
+					</ul>
+					<h3>v1.1</h3>
+					<ul>
+						<li>Added additional manifest information</li>
+					</ul>
+					<h3>v1.0</h3>
+					<ul>
+						<li>Initial release</li>
+					</ul>
+				</div>
+				<button class="viewdata" title="Switch from the help view to the data table">View Data</button>
+				<button class="viewgraph" title="Switch from the help view to the graph view">View Graph</button>
+				<br/>
+				<input type="checkbox" id="advancedmode" title="Enable and disable advanced mode">Enable advanced mode
+			</div>
+		</div>
+	</body>
+</html>

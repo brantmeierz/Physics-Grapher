@@ -1,0 +1,135 @@
+body {
+	background-color: #DDEEFF;	
+}
+
+h1 {
+	font-family: serif;
+	font-size: 30pt;
+}
+
+h2 {
+	font-family: serif;
+	font-size: 20pt;
+}
+
+p {
+	font-family: serif;
+	font-size: 14pt;		
+}
+
+h3 {
+	font-family: serif;
+	font-size: 16pt;
+}
+
+li {
+	font-family: serif;
+	font-size: 12pt;
+}
+
+th {
+    background-color: #3333FF;
+    color: white;
+	font-size: 18pt;
+}
+
+input {
+	background-color: #BBBBFF;
+}
+
+input:hover {
+	background-color: #DDDDFF;
+}
+
+button {
+	background-color: #3333AA;
+	width: 80px;
+	height: 50px;
+	color: white;
+	border-radius: 5px;
+	font-size: 9pt;
+}
+
+button:hover {
+	background-color: #3333FF;	
+}
+
+#dataview, #graphview, #helpview {
+	text-align: center;
+}
+
+#graphview, #helpview {
+	visibility: hidden;
+	display: none;
+}
+
+#datatable {
+	background-color: #5555AA;
+	border-radius: 4px;
+	margin: 0 auto;
+}
+
+#scrollbox {
+	overflow: scroll;
+	width: 400px;
+	height: 60vh;
+	margin: 0 auto;
+}
+
+#helpscroll {
+	overflow: scroll;
+	padding: 10px;
+	width: 95%;
+	height: 80vh;
+	margin: 0 auto;
+}
+
+#helpcontent {
+	text-align: left;	
+}
+
+#graphcanvas {
+	display: inline;
+	border: 4px dotted black;
+}
+
+#xlabel, #ylabel {
+	font-family: Georgia;
+	width: 175px;
+	background-color: #3333FF;
+	color: white;
+	font-size: 18pt;
+	text-align: center;
+}
+
+#titlelabel {
+	font-family: Georgia;
+	width: 375px;
+	background-color: #3333FF;
+	color: white;
+	font-size: 22pt;
+	text-align: center;
+}
+
+#namelabel {
+	font-family: Georgia;
+	width: 375px;
+	background-color: #3333FF;
+	color: white;
+	font-size: 14pt;
+	text-align: center;
+}
+
+#xlabel:hover, #ylabel:hover, #titlelabel:hover {
+	background-color: #5555FF;
+}
+
+.xdata, .ydata, .ydata2 {
+	width: 175px;
+	text-align: center;
+	font-size: 14pt;
+}
+
+.mainelements {
+	display: inline-block;	
+}
